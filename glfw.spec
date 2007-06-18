@@ -1,6 +1,6 @@
 %define	name	glfw
 %define version 2.5.0
-%define release 3
+%define release 4
 
 Summary:	An OpenGL Framework
 Name:		%{name}
@@ -24,16 +24,16 @@ creating threads, and more.
 
 %build
 ./compile.sh
-perl -pi -e "s#-Os#$RPM_OPT_FLAGS -O3 -ffast-math#" lib/x11/Makefile.x11
+perl -pi -e "s#-Os#%{optflags} -O3 -ffast-math#" lib/x11/Makefile.x11
 %make -C lib/x11/ -f Makefile.x11
 
 %install
 rm -rf %{buildroot}
-install -m644 ./lib/x11/libglfw.a -D $RPM_BUILD_ROOT%{_prefix}/X11R6/%{_lib}/libglfw.a
+install -m644 ./lib/x11/libglfw.a -D %{buildroot}%{_libdir}/libglfw.a
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %doc docs/* examples license.txt readme.html
-%{_prefix}/X11R6/%{_lib}/libglfw.a
+%{_libdir}/libglfw.a
