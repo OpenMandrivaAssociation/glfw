@@ -9,6 +9,7 @@ Release:	%mkrel %{release}
 URL:		http://glfw.sourceforge.net/
 License:	BSD
 Source0:	http://ovh.dl.sourceforge.net/sourceforge/glfw/%{name}-%{version}.tar.bz2
+Patch0:		glfw-2.6-installdir.patch
 Group:		System/Libraries
 BuildRequires:	X11-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -21,19 +22,20 @@ creating threads, and more.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p0
 
 %build
-/bin/bash ./compile.sh
-perl -pi -e "s#-Os#%{optflags} -O3 -ffast-math#" lib/x11/Makefile.x11
-%make -C lib/x11/ -f Makefile.x11
+make x11
 
 %install
 rm -rf %{buildroot}
-install -m644 ./lib/x11/libglfw.a -D %{buildroot}%{_libdir}/libglfw.a
+make x11-install DESTDIR=%buildroot PREFIX=%_prefix LIBDIR=%_libdir
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %doc docs/* examples license.txt readme.html
-%{_libdir}/libglfw.a
+%{_libdir}/*.a
+%{_includedir}/*
+%{_libdir}/pkgconfig/*
