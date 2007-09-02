@@ -1,6 +1,6 @@
 %define	name	glfw
-%define version 2.5.0
-%define release 4
+%define version 2.6
+%define release 1
 
 Summary:	An OpenGL Framework
 Name:		%{name}
@@ -20,10 +20,10 @@ keyboard, mouse and joystick input, reding a high precision timer,
 creating threads, and more.
 
 %prep
-%setup -q -n %{name}-2.5
+%setup -q -n %{name}
 
 %build
-./compile.sh
+/bin/bash ./compile.sh
 perl -pi -e "s#-Os#%{optflags} -O3 -ffast-math#" lib/x11/Makefile.x11
 %make -C lib/x11/ -f Makefile.x11
 
