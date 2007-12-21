@@ -12,6 +12,7 @@ Source0:	http://ovh.dl.sourceforge.net/sourceforge/glfw/%{name}-%{version}.tar.b
 Patch0:		glfw-2.6-installdir.patch
 Group:		System/Libraries
 BuildRequires:	X11-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 GLFW is a portable framework for OpenGL application development.
