@@ -1,6 +1,6 @@
 %define	name	glfw
 %define version 2.6
-%define release 3
+%define release 4
 
 Summary:	An OpenGL Framework
 Name:		%{name}
