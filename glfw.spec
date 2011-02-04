@@ -1,6 +1,6 @@
 %define	name	glfw
 %define version 2.6
-%define release 4
+%define release 5
 
 Summary:	An OpenGL Framework
 Name:		%{name}
@@ -11,7 +11,10 @@ License:	BSD
 Source0:	http://ovh.dl.sourceforge.net/sourceforge/glfw/%{name}-%{version}.tar.bz2
 Patch0:		glfw-2.6-installdir.patch
 Group:		System/Libraries
-BuildRequires:	X11-devel
+BuildRequires:	libx11-devel
+BuildRequires:	mesagl-devel
+BuildRequires:	mesaglu-devel
+BuildRequires:	libxrandr-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -25,7 +28,7 @@ creating threads, and more.
 %patch0 -p0
 
 %build
-make x11
+make x11 CC="gcc %optflags %ldflags"
 
 %install
 rm -rf %{buildroot}
