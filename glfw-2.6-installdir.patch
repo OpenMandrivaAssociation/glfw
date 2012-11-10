@@ -1,0 +1,31 @@
+--- lib/x11/Makefile.x11.in.orig	2007-07-01 17:46:46.000000000 +0800
++++ lib/x11/Makefile.x11.in	2007-09-02 13:48:01.000000000 +0800
+@@ -25,12 +25,12 @@
+ # Install GLFW static library
+ ##########################################################################
+ install: libglfw.a libglfw.pc
+-	$(INSTALL) -d $(PREFIX)/lib
+-	$(INSTALL) -c -m 644 libglfw.a $(PREFIX)/lib/libglfw.a
+-	$(INSTALL) -d $(PREFIX)/include/GL
+-	$(INSTALL) -c -m 644 ../../include/GL/glfw.h $(PREFIX)/include/GL/glfw.h
+-	$(INSTALL) -d $(PREFIX)/lib/pkgconfig
+-	$(INSTALL) -c -m 644 libglfw.pc $(PREFIX)/lib/pkgconfig/libglfw.pc
++	$(INSTALL) -d $(DESTDIR)$(LIBDIR)
++	$(INSTALL) -c -m 644 libglfw.a $(DESTDIR)$(LIBDIR)/libglfw.a
++	$(INSTALL) -d $(DESTDIR)$(PREFIX)/include/GL
++	$(INSTALL) -c -m 644 ../../include/GL/glfw.h $(DESTDIR)$(PREFIX)/include/GL/glfw.h
++	$(INSTALL) -d $(DESTDIR)$(LIBDIR)/pkgconfig
++	$(INSTALL) -c -m 644 libglfw.pc $(DESTDIR)$(LIBDIR)/pkgconfig/libglfw.pc
+ 
+ 
+ ##########################################################################
+@@ -91,7 +91,8 @@
+ # Rule for building libglfw.pc
+ ##########################################################################
+ libglfw.pc: libglfw.pc.in
+-	$(SED) -e 's,\@PREFIX\@,$(PREFIX),' libglfw.pc.in > libglfw.pc
++	$(SED) -e 's,\@PREFIX\@,$(PREFIX),' -e 's,/usr/lib,$(LIBDIR),' libglfw.pc.in > libglfw.pc
++	
+ 
+ 
+ ##########################################################################
