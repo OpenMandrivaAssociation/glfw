@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 Summary:	An OpenGL Framework
 Name:		glfw
 Version:	2.6
