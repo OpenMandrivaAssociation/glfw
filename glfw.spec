@@ -11,11 +11,15 @@ License:	BSD
 Group:		System/Libraries
 Url:		http://www.glfw.org/
 Source0:	https://github.com/glfw/glfw/releases/download/%{version}/glfw-%{version}.zip
-BuildRequires:	pkgconfig(x11)
-BuildRequires:	pkgconfig(gl)
-BuildRequires:	pkgconfig(glu)
-BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	cmake
+BuildRequires:	doxygen
+BuildRequires:  pkgconfig(gl)
+BuildRequires:  pkgconfig(x11)
+BuildRequires:  pkgconfig(xcursor)
+BuildRequires:  pkgconfig(xi)
+BuildRequires:  pkgconfig(xinerama)
+BuildRequires:  pkgconfig(xrandr)
+BuildRequires:  pkgconfig(xxf86vm)
 
 %description
 GLFW is a portable framework for OpenGL application development.
