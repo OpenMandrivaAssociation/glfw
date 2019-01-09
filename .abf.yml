@@ -1,4 +1,2 @@
-removed_sources:
-  glfw-2.7.8.tar.bz2: d1a79ad0cab5b4b7a2b84c05bab0aec34b81f7c3
 sources:
-  glfw-3.1.2.zip: 6285882cea7d562797adaa194f940ba0e938c2b1
+  glfw-3.2.1.zip: d40d8d491e53c105a01a02b4b53242ab7b2d27c3

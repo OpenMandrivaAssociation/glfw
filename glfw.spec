@@ -5,8 +5,8 @@
 
 Summary:	An OpenGL Framework
 Name:		glfw
-Version:	3.1.2
-Release:	3
+Version:	3.2.1
+Release:	1
 License:	BSD
 Group:		System/Libraries
 Url:		http://www.glfw.org/
@@ -67,7 +67,7 @@ This package contains the development filescw for %{name}.
 %files -n %{devname}
 %doc docs/* COPYING.txt
 %{_libdir}/libglfw.so
-%{_libdir}/cmake/%{name}
+%{_libdir}/cmake/%{name}3
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
 
