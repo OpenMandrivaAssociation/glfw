@@ -5,7 +5,7 @@
 
 Summary:	An OpenGL Framework
 Name:		glfw
-Version:	3.2.1
+Version:	3.3
 Release:	1
 License:	BSD
 Group:		System/Libraries
@@ -56,16 +56,16 @@ This package contains the development filescw for %{name}.
 %build
 %cmake -DGLFW_BUILD_EXAMPLES:BOOL=OFF \
        -DGLFW_BUILD_TESTS:BOOL=OFF
-%make
+%make_build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 %files -n %{libname}
 %{_libdir}/libglfw.so.%{major}*
 
 %files -n %{devname}
-%doc docs/* COPYING.txt
+%doc docs/*
 %{_libdir}/libglfw.so
 %{_libdir}/cmake/%{name}3
 %{_includedir}/*
