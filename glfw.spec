@@ -56,16 +56,16 @@ This package contains the development filescw for %{name}.
 %build
 %cmake -DGLFW_BUILD_EXAMPLES:BOOL=OFF \
        -DGLFW_BUILD_TESTS:BOOL=OFF
-%make
+%make_build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 %files -n %{libname}
 %{_libdir}/libglfw.so.%{major}*
 
 %files -n %{devname}
-%doc docs/* COPYING.txt
+%doc docs/*
 %{_libdir}/libglfw.so
 %{_libdir}/cmake/%{name}3
 %{_includedir}/*
