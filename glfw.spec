@@ -1,4 +1,4 @@
-%define debug_package %{nil}
+%define _empty_manifest_terminate_build 0
 %define major	%(echo %{version}|cut -d. -f1,1)
 %define	libname	%mklibname %{name} %{major}
 %define	devname	%mklibname %{name} -d
@@ -6,7 +6,7 @@
 Summary:	An OpenGL Framework
 Name:		glfw
 Version:	3.3.4
-Release:	1
+Release:	2
 License:	BSD
 Group:		System/Libraries
 Url:		http://www.glfw.org/
