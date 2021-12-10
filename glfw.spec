@@ -5,7 +5,7 @@
 
 Summary:	An OpenGL Framework
 Name:		glfw
-Version:	3.3.5
+Version:	3.3.6
 Release:	1
 License:	BSD
 Group:		System/Libraries
