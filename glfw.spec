@@ -61,7 +61,8 @@ This package contains the development filescw for %{name}.
 
 %build
 %cmake -DGLFW_BUILD_EXAMPLES:BOOL=OFF \
-       -DGLFW_BUILD_TESTS:BOOL=OFF
+       -DGLFW_BUILD_TESTS:BOOL=OFF \
+       -DGLFW_BUILD_DOC=OFF
 %make_build
 
 %install
@@ -71,7 +72,7 @@ This package contains the development filescw for %{name}.
 %{_libdir}/libglfw.so.%{major}*
 
 %files -n %{devname}
-%doc docs/*
+#doc docs/*
 %{_libdir}/libglfw.so
 %{_libdir}/cmake/%{name}3
 %{_includedir}/*
