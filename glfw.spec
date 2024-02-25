@@ -13,6 +13,7 @@ Url:		http://www.glfw.org/
 Source0:	https://github.com/glfw/glfw/releases/download/%{version}/glfw-%{version}.zip
 BuildRequires:	cmake
 BuildRequires:	doxygen
+BuildRequires:       gettext
 BuildRequires:  pkgconfig(gl)
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xcursor)
