@@ -20,6 +20,7 @@ BuildRequires:  pkgconfig(xi)
 BuildRequires:  pkgconfig(xinerama)
 BuildRequires:  pkgconfig(xrandr)
 BuildRequires:  pkgconfig(xxf86vm)
+BuildRequires:  wayland-tools
 
 %description
 GLFW is a portable framework for OpenGL application development.
