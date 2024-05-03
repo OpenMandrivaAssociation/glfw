@@ -12,8 +12,9 @@ Group:		System/Libraries
 Url:		http://www.glfw.org/
 Source0:	https://github.com/glfw/glfw/releases/download/%{version}/glfw-%{version}.zip
 BuildRequires:	cmake
+BuildRequires:	ninja
 BuildRequires:	doxygen
-BuildRequires:       gettext
+BuildRequires:	gettext
 BuildRequires:  pkgconfig(gl)
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xcursor)
@@ -56,23 +57,28 @@ Provides:	%{name}-devel = %{version}-%{release}
 This package contains the development filescw for %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
-%build
+%conf
 %cmake -DGLFW_BUILD_EXAMPLES:BOOL=OFF \
        -DGLFW_BUILD_TESTS:BOOL=OFF \
-       -DGLFW_BUILD_DOC=OFF
-%make_build
+       -G Ninja
+
+%build
+%ninja_build -C build
 
 %install
-%make_install -C build
+# FIXME the CMake files assume BUILDDIR==SOURCEDIR
+# and therefore want to copy prebuilt docs from BUILDDIR
+# For now, let's just put them where they're expected.
+cp -a docs/html build/docs/
+%ninja_install -C build
 
 %files -n %{libname}
 %{_libdir}/libglfw.so.%{major}*
 
 %files -n %{devname}
-#doc docs/*
+%doc %{_docdir}/GLFW
 %{_libdir}/libglfw.so
 %{_libdir}/cmake/%{name}3
 %{_includedir}/*
