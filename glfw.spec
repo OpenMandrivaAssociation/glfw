@@ -9,7 +9,7 @@ Version:	3.4
 Release:	1
 License:	BSD
 Group:		System/Libraries
-Url:		http://www.glfw.org/
+Url:		https://www.glfw.org/
 Source0:	https://github.com/glfw/glfw/releases/download/%{version}/glfw-%{version}.zip
 BuildRequires:	cmake
 BuildRequires:	ninja
