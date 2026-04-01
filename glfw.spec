@@ -31,11 +31,27 @@ BuildRequires:  pkgconfig(xxf86vm)
 BuildRequires:  pkgconfig(xkbcommon-x11)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-cursor)
+BuildRequires:	pkgconfig(wayland-egl)
+BuildRequires:	pkgconfig(xkbcommon)
 BuildRequires:  egl-wayland
 BuildRequires:  wayland-tools
 BuildSystem:	cmake
 BuildOption:	-DGLFW_BUILD_EXAMPLES:BOOL=OFF
 BuildOption:	-DGLFW_BUILD_TESTS:BOOL=OFF
+%if %{with compat32}
+BuildRequires:	devel(libGL)
+BuildRequires:	devel(libX11)
+BuildRequires:	devel(libXcursor)
+BuildRequires:	devel(libXi)
+BuildRequires:	devel(libXinerama)
+BuildRequires:	devel(libXrandr)
+BuildRequires:	devel(libXxf86vm)
+BuildRequires:	devel(libxkbcommon-x11)
+BuildRequires:	devel(libwayland-client)
+BuildRequires:	devel(libwayland-cursor)
+BuildRequires:	devel(libwayland-egl)
+BuildRequires:	devel(libxkbcommon)
+%endif
 
 %description
 GLFW is a portable framework for OpenGL application development.
