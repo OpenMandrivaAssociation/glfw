@@ -83,6 +83,7 @@ Provides:	%{name}-devel = %{version}-%{release}
 %description -n %{devname}
 This package contains the development files for %{name}.
 
+%if %{with compat32}
 %package -n %{lib32name}
 Summary:	GLFW OpenGL Framework Library (32-bit)
 Group:		System/Libraries
@@ -106,6 +107,7 @@ Provides:	%{devname} = %{version}-%{release}
 
 %description -n %{dev32name}
 This package contains the development files for %{name} (32-bit).
+%endif
 
 %prep
 %autosetup -p1
